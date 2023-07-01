@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Web Page</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Voce deve pagar R$<span id="valor-text"></span></h1>
+  
+  <p>Escolha seu método de pagamento</p>
+
+  <input type="radio" id="boleto" name="pagamento" value="boleto" onclick="toggleButtonVisibility()">
+  <label for="boleto">Boleto</label><br>
+
+  <input type="radio" id="pix" name="pagamento" value="pix" onclick="toggleButtonVisibility()">
+  <label for="pix">Pix</label><br>
+
+  <button id="gerar-boleto" class="hidden" onclick="gerarBoleto()">Gerar Boleto</button>
+  <button id="gerar-pix" class="hidden" onclick="gerarPix()">Gerar Pix</button>
+
+  <script>
+    var valor = 10.5; 
+
+    document.getElementById('valor-text').textContent = valor.toFixed(2);
+
+    function toggleButtonVisibility() {
+      var gerarBoletoButton = document.getElementById('gerar-boleto');
+      var gerarPixButton = document.getElementById('gerar-pix');
+      var boletoCheckbox = document.getElementById('boleto');
+      var pixCheckbox = document.getElementById('pix');
+
+      if (boletoCheckbox.checked) {
+        gerarBoletoButton.classList.remove('hidden');
+      } else {
+        gerarBoletoButton.classList.add('hidden');
+      }
+
+      if (pixCheckbox.checked) {
+        gerarPixButton.classList.remove('hidden');
+      } else {
+        gerarPixButton.classList.add('hidden');
+      }
+    }
+
+    function gerarBoleto() {
+      var pdfUrl = 'https://drive.google.com/file/d/1HssFAG-CQOCILZ7ey1nyZAylHA6UJBtA/view?usp=sharing';
+
+      var fileId = pdfUrl.match(/\/d\/(.+?)\//)[1];
+
+      var downloadUrl = 'https://drive.google.com/uc?export=download&id=' + fileId;
+
+      var link = document.createElement('a');
+      link.href = downloadUrl;
+      link.target = '_blank';
+      link.download = 'boleto.pdf';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function gerarPix() {
+      var imageUrl = 'https://drive.google.com/file/d/1psqWeSavhvBjds0f1Bdrq_faFSbCqAAf/view?usp=sharing';
+
+      var fileId = imageUrl.match(/\/d\/(.+?)\//)[1];
+
+      var imageLink = 'https://drive.google.com/uc?export=view&id=' + fileId;
+
+      var imgElement = document.createElement('img');
+      imgElement.src = imageLink;
+      document.body.appendChild(imgElement);
+    }
+  </script>
+</body>
+</html>
