@@ -1,0 +1,42 @@
+/* Estilos para o título */
+h1 {
+  background-color: DodgerBlue;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Estilos para a logo */
+.logo {
+  max-width: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+/* Estilos para as caixas de formulário */
+.form-row {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+input[type="text"] {
+  width: 60%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Estilos para o botão */
+button[type="submit"] {
+  background-color: DodgerBlue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+button[type="submit"]:hover {
+  background-color: rgb(14, 175, 81);
+}
