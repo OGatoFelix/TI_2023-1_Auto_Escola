@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página de Marcação de Consentimento</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    p {
+      margin-bottom: 10px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    button {
+      padding: 10px 20px;
+      background-color: #337ab7;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #23527c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Consentimento de Privacidade</h1>
+  
+  <p>Por favor, marque as opções abaixo para indicar o seu consentimento:</p>
+  
+  <label for="opcao1">
+    <input type="checkbox" id="opcao1"> Eu concordo em compartilhar meus dados pessoais.
+  </label>
+  
+  <label for="opcao2">
+    <input type="checkbox" id="opcao2"> Eu concordo em receber comunicações por e-mail.
+  </label>
+  
+  <label for="opcao3">
+    <input type="checkbox" id="opcao3"> Eu concordo com os termos e condições.
+  </label>
+  
+  <button onclick="enviarFormulario()">Enviar</button>
+  
+  <script>
+    function enviarFormulario() {
+      var opcao1 = document.getElementById('opcao1').checked;
+      var opcao2 = document.getElementById('opcao2').checked;
+      var opcao3 = document.getElementById('opcao3').checked;
+    
+      if (opcao1 && opcao2 && opcao3) {
+        // Todas as opções foram selecionadas, envie o formulário
+        alert('Formulário enviado com sucesso!');
+      } else {
+        // Faltam opções de consentimento, exiba uma mensagem de erro
+        alert('Por favor, marque todas as opções de consentimento.');
+      }
+    }
+    </script>
+    
+</body>
+</html>
